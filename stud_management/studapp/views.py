@@ -27,14 +27,39 @@ class StudentView(View):
 
 class StudentDeleteView(View):
 
-    def get(self, request, id):
-        student = StudentModel.objects.get(id=id)
+    def get(self, request,*args, **kwargs):
+        studid=kwargs.get('id')
+        student = StudentModel.objects.get(id=studid)
         student.delete()
         return redirect('home')
     
     
-# class StudEditview(View):
+class StudEditview(View):
     
-#     def get(self,request,*args, **kwargs):
+    def get(self,request,*args, **kwargs):
         
-#         stud=StudentModel.objects.get(id=id)    
+        studid=kwargs.get('id')
+        
+        
+        stud=StudentModel.objects.get(id=studid)   
+        
+        return render (request,'stud_edit.html',{"data":stud})
+    
+    
+    def post(self,request,*args, **kwargs):
+        
+        id=kwargs.get('id')
+        
+        
+        student=StudentModel.objects.get(id=id)
+        student.stud_name=request.POST.get("name")
+        student.age=request.POST.get("age")
+        student.email=request.POST.get("email")
+        student.phone=request.POST.get("phone")
+        
+        student.save()
+        return redirect('home')
+    
+        
+        
+         
