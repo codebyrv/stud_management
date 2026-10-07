@@ -16,13 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+<<<<<<< HEAD
 from studapp.views import StudentView,StudentDeleteView,StudEditview
+=======
+from studapp.views import StudentView,StudentDeleteView
+>>>>>>> 960cbdb (first commit)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',StudentView.as_view(),name='home'),
     path('delete/<int:id>',StudentDeleteView.as_view(),name='delete'),
+<<<<<<< HEAD
     path('edit/<int:id>',StudEditview.as_view(),name='edit'),
+=======
+>>>>>>> 960cbdb (first commit)
     # path('list',StudentListview.as_view(),name='stud_list')
     
 ]

@@ -27,13 +27,19 @@ class StudentView(View):
 
 class StudentDeleteView(View):
 
+<<<<<<< HEAD
     def get(self, request,*args, **kwargs):
         studid=kwargs.get('id')
         student = StudentModel.objects.get(id=studid)
+=======
+    def get(self, request, id):
+        student = StudentModel.objects.get(id=id)
+>>>>>>> 960cbdb (first commit)
         student.delete()
         return redirect('home')
     
     
+<<<<<<< HEAD
 class StudEditview(View):
     
     def get(self,request,*args, **kwargs):
@@ -63,3 +69,10 @@ class StudEditview(View):
         
         
          
+=======
+# class StudEditview(View):
+    
+#     def get(self,request,*args, **kwargs):
+        
+#         stud=StudentModel.objects.get(id=id)    
+>>>>>>> 960cbdb (first commit)
